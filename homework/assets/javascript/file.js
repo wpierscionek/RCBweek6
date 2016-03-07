@@ -1,11 +1,19 @@
-var cartoonsList = ["Tom And Jerry", "Dragon Ball Z", "Naruto", "Ed, Edd, 'n' Eddy", "Courage the Cowardly Dog", "Dexter's Laboratory ", "The Smurfs", "Looney Tunes / Merrie Melodies", "Inspector Gadget", "X-men", "Garfield and Friends"]; 
+var cartoonsList = ["Tom And Jerry","Full Metall Alchemist", "One Piece", "Dragon Ball Z",
+ "Naruto", "Ed, Edd, 'n' Eddy", "Courage the Cowardly Dog", "Dexter's Laboratory ",
+  "The Smurfs", "Looney Tunes", "Inspector Gadget", "X-men", "Garfield and Friends"]; 
 
-for (var i = 0; i < cartoonsList.length; i++) { 
+function gernerateButtons() {
+	$("#cartoons").empty();
+
+	for (var i = 0; i < cartoonsList.length; i++) { 
 	var cartoonButton = $("<button id="+cartoonsList[i]+">"+cartoonsList[i]+"</button>");
 	// console.log (cartoonButton);
 	cartoonButton.attr("data-name", cartoonsList[i]);
 	$("#cartoons").append(cartoonButton);
-}
+	}
+};
+
+gernerateButtons();
 
 $("button").on('click', function() {
         var button  = $(this).data('name');
@@ -31,4 +39,11 @@ $("button").on('click', function() {
                 }
 
             });
-    });
+        });
+
+$('#search').on('click', function(){
+    var cartoon = $('#cartoon-input').val().trim();
+    cartoonsList.push(cartoon);
+    gernerateButtons();
+     return false;
+  });
