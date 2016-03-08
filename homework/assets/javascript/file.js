@@ -14,7 +14,7 @@ function gernerateButtons() {
 	
 	function displayCartoonInfo() {
         var button  = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + button + "&api_key=dc6zaTOxFJmzC&limit=21";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + button + "&api_key=dc6zaTOxFJmzC&limit=21";
 
         $.ajax({
                 url: queryURL,
